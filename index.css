@@ -1,6 +1,21 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Rye&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Rye', cursive;
     cursor: none;
+} 
+
+.cursor {
+    position: absolute;
+    height: 120px;
+    transform: translate(30%, 30%);
+    pointer-events: none;
+    z-index: 2;
+    transition: 0.3 transform ease;
+    transform-origin: 100% 100%;
+
 }
