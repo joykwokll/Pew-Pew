@@ -10,16 +10,43 @@
 } 
 
 body {
-    background-image: url("./Carnival Background   PowerPoint Backgrounds for PowerPoint.jpeg");
+    background-image: url("./Carnival Background 2 (1).jpg");
     background-size: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position-y: -5cm;
+    height: 100vh;
    }
+
+button {
+    color: #000;
+    border: 2px solid #fff;
+    background: #fac;
+    padding: 15px 45px;
+    font-size: 0.5cm;
+    margin-top: 3em;
+    outline: none;
+    cursor: none;
+}
+
+.container {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    
+}
+
+.bullet {
+    position: absolute;
+    height: 50px;
+    z-index: 2;
+    transform: translate(70%, 70%)
+
+}
 
 .cursor {
     position: absolute;
-    height: 120px;
+    height: 80px;
     transform: translate(30%, 30%);
     pointer-events: none;
     z-index: 2;
