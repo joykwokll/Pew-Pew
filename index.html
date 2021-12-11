@@ -16,8 +16,15 @@
         <button type="button">START GAME</button>
 
         <img src="./Snipe.png" alt="snipe" class="cursor" />
-        <img src="./—Pngtree—bullet holes_108345.png" alt="bullet holes" class="bullet" />
-        <img src="./Carnival_Bg.png" alt="CarnivalBG"/>
+        <!-- <img src="./—Pngtree—bullet holes_108345.png" alt="bullet holes" class="bullet" /> -->
     </div>
+    
+    <script>
+    const cursor = document.querySelector(".cursor");
+    window.addEventListener("mousemove", (e) => {
+        cursor.style.top = e.pageY + "px";
+        cursor.style.left = e.pageX + "px";
+    });
+    </script>
 </body>
 </html>

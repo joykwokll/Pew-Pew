@@ -9,6 +9,14 @@
     cursor: none;
 } 
 
+body {
+    background-image: url("./Carnival Background   PowerPoint Backgrounds for PowerPoint.jpeg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position-y: -5cm;
+   }
+
 .cursor {
     position: absolute;
     height: 120px;
