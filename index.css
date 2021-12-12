@@ -16,6 +16,7 @@ body {
     background-attachment: fixed;
     background-position-y: -5cm;
     height: 100vh;
+    text-align: center;
    }
 
 button {
@@ -27,6 +28,8 @@ button {
     margin-top: 3em;
     outline: none;
     cursor: none;
+    text-align: center;
+    position: center;
 }
 
 .container {
@@ -41,7 +44,6 @@ button {
     height: 50px;
     z-index: 2;
     transform: translate(70%, 70%)
-
 }
 
 .cursor {
@@ -53,4 +55,16 @@ button {
     transition: 0.3 transform ease;
     transform-origin: 100% 100%;
 
+}
+
+.target {
+    /* position: absolute;
+    top: randTop + "px";
+    left: randLeft + "px";
+    size :inherit; */
+    height: 100px;
+}
+
+img::selection{
+    background: transparent;
 }
