@@ -6,7 +6,8 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Rye', cursive;
-    cursor: none;
+    /* cursor: none; */
+    cursor:url("./Snipe.png"), auto;
 } 
 
 body {
@@ -17,6 +18,7 @@ body {
     background-position-y: -5cm;
     height: 100vh;
     text-align: center;
+    overflow: hidden;
    }
 
 button {
@@ -27,28 +29,30 @@ button {
     font-size: 0.5cm;
     margin-top: 3em;
     outline: none;
-    cursor: none;
+    /* cursor: none; */
     text-align: center;
     position: center;
 }
 
 .container {
+    /* background: blue; */
     position: relative;
-    height: 100%;
     overflow: hidden;
-    
+    height: 71%;   
+    width: 71%;
+    margin: 16% auto 0;
 }
 
 .bullet {
     position: absolute;
     height: 50px;
     z-index: 2;
-    transform: translate(70%, 70%)
+    transform: translate(-367%, -436%)
 }
 
 .cursor {
     position: absolute;
-    height: 80px;
+    height: 100px;
     transform: translate(30%, 30%);
     pointer-events: none;
     z-index: 2;
@@ -62,9 +66,34 @@ button {
     top: randTop + "px";
     left: randLeft + "px";
     size :inherit; */
-    height: 100px;
+    height: 120px;
 }
 
 img::selection{
     background: transparent;
+}
+
+.startButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,0%);
+    z-index: 999;
+}
+
+.score {
+    position: absolute;
+    color: white;
+    left: 2%;
+    top: 2%;
+    font-size: 24px;
+}
+
+.title {
+    font-size: 80px;
+    position: absolute;
+    top: 2%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    color: black;
 }
