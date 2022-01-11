@@ -14,7 +14,7 @@ function startGame() {
     startButton.remove();
     const targetBoard = document.createElement("img");
     targetBoard.setAttribute("class", "targetBoard");
-    targetBoard.setAttribute("src", "./Target Board.png");
+    targetBoard.setAttribute("src", "./targetboard.png");
     container.appendChild(targetBoard);
     setInterval(() => {
         const randTop = Math.random() * (contHeight - 100);
