@@ -66,8 +66,8 @@ button {
     top: randTop + "px";
     left: randLeft + "px";
     size :inherit; */
-    height: 100px;
-    width: 100px;
+    height: 60px;
+    width: 60px;
 }
 
 img::selection{

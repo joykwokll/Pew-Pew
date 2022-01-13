@@ -9,19 +9,15 @@ const contWidth = container.offsetWidth;
 
 //TIMER FUNCTION//
 let startingTime = 10;
-function timerCountdown(){
+function timerCountdown() {
     let timer = setInterval(() => {
         startingTime--;
+        if (startingTime <= 0) {
+            clearInterval(timer);
+            endGame();
+        }
         document.querySelector(".timer").innerHTML = "TIMER: " + startingTime + " Seconds"
     }, 1000);
-    // if(startingTime <= 0) {
-    //     clearInterval();
-    // }
-}
-function stopTimer(){
-    if(startingTime <= 0) {
-        clearInterval();
-    }
 }
 
 function startGame(level) {
@@ -34,17 +30,23 @@ function startGame(level) {
     targetBoard.setAttribute("class", "targetBoard");
     targetBoard.setAttribute("src", "./targetboard.png");
     container.appendChild(targetBoard);
-    setInterval(() => {
+    let targetBoardInterval = setInterval(() => {
         const randTop = Math.random() * (contHeight - 100);
         const randLeft = Math.random() * (contWidth - 100);
+        if (startingTime <= 0) {
+            targetBoard.remove();
+            clearInterval(targetBoardInterval);
+        }
 
         targetBoard.style.position = "absolute";
         targetBoard.style.top = randTop + "px";
         targetBoard.style.left = randLeft + "px";
     }, level);
+    
+
     //TARGET BOARD//
 
-    //
+    //BULLET SHOT//
     window.addEventListener("click", (e) => {
         bullet.style.top = e.pageY + "px"
         bullet.style.left = e.pageX + "px"
@@ -52,17 +54,16 @@ function startGame(level) {
             bullet.style.top = "0px"
             bullet.style.left = "0px"
         }, 500);
+    //BULLET SHOT//
 
-        // let bulletTop = bullet.offsetTop
+    console.log(e.pageY)
+    console.log(e.pageX)
+    console.log(bullet.style.top)
+    console.log(bullet.style.left)
+    console.log(e.target)
+    console.log(targetBoard)
 
-        console.log(e.pageY)
-        console.log(e.pageX)
-        console.log(bullet.style.top)
-        console.log(bullet.style.left)
-        console.log(e.target)
-        console.log(targetBoard)
-
-
+    //SCORE//
         if (e.target === targetBoard) {
             // console.log("hello world")
             score++
@@ -70,13 +71,20 @@ function startGame(level) {
         document.querySelector(".score").innerHTML = "SCORE: " + score
         //     if (started) startButton.innerHTML = "SCORE : " + score;
     });
+    //SCORE//
+
     timerCountdown();
 
 }
 
 function endGame() {
+    // if (score < 10){
+    // let gameOver = document.createElement("h1");
+    // gameOver.setAttribute("class", "gameOver");
+    // document.querySelector(".gameOver").innerHTML = "GAME OVER"
+    }
 
-}
+
 
 //LEVEL 1 (Speed = 1500)
 startButton.addEventListener("click", (event) => {
@@ -96,7 +104,6 @@ startButton.addEventListener("click", (event) => {
 // });
 
 
-//MAKE A TIMER 
 //WHEN TIMER RUN OUT, CALL END GAME
 //MAKE A END GAME FUNCTION 
 //CHECK PASSING MARK 
