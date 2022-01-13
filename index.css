@@ -7,7 +7,7 @@
     box-sizing: border-box;
     font-family: 'Rye', cursive;
     /* cursor: none; */
-    cursor:url("./snipe.png"), auto;
+    cursor:url("./snipe.png") 40 40, auto;
 } 
 
 body {
@@ -47,7 +47,7 @@ button {
     height: 50px;
     z-index: 2;
     transform: translate(70%, 70%);
-    transform: translate(-367%, -475%)
+    transform: translate(-442%, -516%)
 }
 
 /* .cursor {
@@ -108,5 +108,11 @@ img::selection{
 }
 
 .timer {
+    font-size: 24px;
+    position: absolute;
+    text-align: right;
+    top: 4%;
+    right: 2%;
+    color: white;
     
 }

@@ -32,25 +32,25 @@ function startGame(level) {
             bullet.style.left = "0px"
         }, 500);
         // let bulletTop = bullet.offsetTop
-        
+
         console.log(e.pageY)
         console.log(e.pageX)
         console.log(bullet.style.top)
         console.log(bullet.style.left)
         console.log(e.target)
         console.log(targetBoard)
-        
+
 
         if (e.target === targetBoard) {
             // console.log("hello world")
             score++
-            document.querySelector(".score").innerHTML = "SCORE: " + score
         } else { score > 0 && score-- }
+        document.querySelector(".score").innerHTML = "SCORE: " + score
         //     if (started) startButton.innerHTML = "SCORE : " + score;
     });
 }
 
-function endGame () {
+function endGame() {
 
 }
 
