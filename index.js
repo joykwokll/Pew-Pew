@@ -84,7 +84,7 @@ function startGame(level) {
 // }
 
 function endGame() {
-    if (score < 10){
+    if (score < 5){
 
     let gameOver = document.createElement("h1");
     gameOver.setAttribute("class", "gameOver");
@@ -106,6 +106,9 @@ function endGame() {
         startGame(1500);
     })
     
+    }
+    else{ 
+        // startGame(2500);
     }
     
 }
