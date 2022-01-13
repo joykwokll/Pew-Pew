@@ -8,7 +8,7 @@ let score = 0;
 const contHeight = container.offsetHeight;
 const contWidth = container.offsetWidth;
 
-function startGame() {
+function startGame(level) {
     console.log("started");
     started = true;
     startButton.remove();
@@ -23,35 +23,59 @@ function startGame() {
         targetBoard.style.position = "absolute";
         targetBoard.style.top = randTop + "px";
         targetBoard.style.left = randLeft + "px";
-    }, 1500);
+    }, level);
     window.addEventListener("click", (e) => {
         bullet.style.top = e.pageY + "px"
         bullet.style.left = e.pageX + "px"
-        // setTimeout(() => {
-        //     bullet.style.top = "0px"
-        //     bullet.style.left = "0px"
-        // }, 500);
+        setTimeout(() => {
+            bullet.style.top = "0px"
+            bullet.style.left = "0px"
+        }, 500);
+        // let bulletTop = bullet.offsetTop
+        
         console.log(e.pageY)
         console.log(e.pageX)
         console.log(bullet.style.top)
         console.log(bullet.style.left)
-
+        console.log(e.target)
+        console.log(targetBoard)
+        
 
         if (e.target === targetBoard) {
+            // console.log("hello world")
             score++
+            document.querySelector(".score").innerHTML = "SCORE: " + score
         } else { score > 0 && score-- }
         //     if (started) startButton.innerHTML = "SCORE : " + score;
     });
 }
 
+function endGame () {
+
+}
+
+//LEVEL 1 (Speed = 1500)
 startButton.addEventListener("click", (event) => {
     console.log(event.currentTarget);
-    // startButton.innerText = "SCORE : " + score;
-    startGame();
+    startGame(1500);
 })
+
+// window.addEventListener('resize', (ev) => {
+//     canvas.width = window.innerWidth
+//     canvas.height = window.innerHeight
+// })
 
 // const cursor = document.querySelector(".cursor");
 // window.addEventListener("mousemove", (e) => {
 //     cursor.style.top = e.pageY + "px";
 //     cursor.style.left = e.pageX + "px";
 // });
+
+
+//MAKE A TIMER 
+//WHEN TIMER RUN OUT, CALL END GAME
+//MAKE A END GAME FUNCTION 
+//CHECK PASSING MARK 
+//IF PASSED MARK
+
+//PROMPT START LEVEL 2 
