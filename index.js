@@ -77,12 +77,38 @@ function startGame(level) {
 
 }
 
+// function createNewElement (name, element, className) {
+//     let name = document.createElement(element);
+//     name.setAttribute("class", className);
+//     container.appendChild(name)
+// }
+
 function endGame() {
-    // if (score < 10){
-    // let gameOver = document.createElement("h1");
-    // gameOver.setAttribute("class", "gameOver");
-    // document.querySelector(".gameOver").innerHTML = "GAME OVER"
+    if (score < 10){
+
+    let gameOver = document.createElement("h1");
+    gameOver.setAttribute("class", "gameOver");
+    container.appendChild(gameOver);
+    document.querySelector(".gameOver").innerHTML = "GAME OVER"
+
+    let finalScore = document.createElement("h3");
+    finalScore.setAttribute("class", "finalScore");
+    container.appendChild(finalScore);
+    document.querySelector(".finalScore").innerHTML = "SCORE: " + score 
+
+    let reStart = document.createElement("BUTTON");
+    reStart.setAttribute("class", "reStart");
+    container.appendChild(reStart);
+    document.querySelector(".reStart").innerHTML = "Restart Game"
+
+    reStart.addEventListener("click", (event) => {
+        console.log(event.currentTarget);
+        startGame(1500);
+    })
+    
     }
+    
+}
 
 
 
