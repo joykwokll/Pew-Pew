@@ -2,11 +2,17 @@ const startButton = document.querySelector(".startButton");
 const container = document.querySelector(".container");
 const bullet = document.querySelector(".bullet");
 let started = false;
-
 let score = 0;
 
 const contHeight = container.offsetHeight;
 const contWidth = container.offsetWidth;
+
+//TIMER FUNCTION//
+function timerCountdown(){
+    let startingTime = 10;
+    setInterval(startingTime --, 10000);
+    document.querySelector(".timer").innerHTML = "TIMER: " + startingTime + " Seconds"
+}
 
 function startGame(level) {
     console.log("started");
@@ -48,6 +54,8 @@ function startGame(level) {
         document.querySelector(".score").innerHTML = "SCORE: " + score
         //     if (started) startButton.innerHTML = "SCORE : " + score;
     });
+
+
 }
 
 function endGame() {
