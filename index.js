@@ -3,6 +3,7 @@ const container = document.querySelector(".container");
 const bullet = document.querySelector(".bullet");
 let started = false;
 let score = 0;
+let goal = 0;
 
 const contHeight = container.offsetHeight;
 const contWidth = container.offsetWidth;
@@ -26,6 +27,9 @@ function startGame(level) {
     console.log("started");
     started = true;
     startButton.remove();
+    // if (nextLevel){
+    // nextLevel.remove();
+    // }
 
     //TARGET BOARD//
     const targetBoard = document.createElement("img");
@@ -56,6 +60,10 @@ function startGame(level) {
             bullet.style.top = "0px"
             bullet.style.left = "0px"
         }, 500);
+        const audio = new Audio();
+        audio.src = "./gunshot.mp3";
+        onclick = audio.play();
+        
         //BULLET SHOT//
 
         console.log(e.pageY)
@@ -71,6 +79,8 @@ function startGame(level) {
             score++
         } else { score > 0 && score-- }
         document.querySelector(".score").innerHTML = "SCORE: " + score
+
+        document.querySelector(".goal").innerHTML = "GOAL: " + 5
         //     if (started) startButton.innerHTML = "SCORE : " + score;
     });
     //SCORE//
@@ -99,7 +109,7 @@ function endGame() {
         // container.appendChild(finalScore);
         // document.querySelector(".finalScore").innerHTML = "SCORE: " + score
 
-        let reStart = document.createElement("BUTTON");
+        let reStart = document.createElement("button");
         reStart.setAttribute("class", "reStart");
         container.appendChild(reStart);
         document.querySelector(".reStart").innerHTML = "Restart Game"
@@ -117,6 +127,8 @@ function restartGame() {
 }
 
 function nextLevel() {
+    started = false;
+    
     if (score >= 5 && score < 10) {
 
         createNewElement("h1", "youPassed", "CONGRATULATIONS")
@@ -125,17 +137,17 @@ function nextLevel() {
         // container.appendChild(youPassed);
         // document.querySelector(".youPassed").innerHTML = "CONGRATULATIONS"
         createNewElement("h3", "finalScore", `SCORE: ${score}`)
-        createNewElement("BUTTON", "nextLevel", "Proceed to Level 2")
-        // let nextLevel = document.createElement("nextLevel");
-        // nextLevel.setAttribute("class", "nextLevel");
-        // container.appendChild(nextLevel);
-        // document.querySelector(".nextLevel").innerHTML = "Proceed to Level 2"
-        nextLevel.addEventListener("click", () => {
+        // createNewElement("BUTTON", "levelTwo", "Proceed to Level 2")
+        let nextLevel = document.createElement("button");
+        nextLevel.setAttribute("class", "nextLevel");
+        nextLevel.addEventListener("click", (event) => {
+            console.log(event.currentTarget);
+            event.stopPropagation()
             startGame(2000);
+            console.log("test")
         })
-        console.log("test")
-
-
+        container.appendChild(nextLevel);
+        document.querySelector(".nextLevel").innerHTML = "Proceed to Level 2"
     }
     // startGame(2500);
 }
@@ -155,6 +167,11 @@ startButton.addEventListener("click", (event) => {
 //     startGame(2000);
 // })
 // //LEVEL 2 (Speed = 2000)
+
+
+
+
+
 
 
 

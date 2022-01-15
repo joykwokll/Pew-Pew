@@ -90,6 +90,14 @@ img::selection{
     font-size: 24px;
 }
 
+.goal {
+    position: absolute;
+    color: white;
+    left: 2%;
+    top: 20%;
+    font-size: 24px;
+}
+
 .level {
     position: absolute;
     color: white;
