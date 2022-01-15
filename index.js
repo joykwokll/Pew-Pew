@@ -1,6 +1,7 @@
 const startButton = document.querySelector(".startButton");
 const container = document.querySelector(".container");
 const bullet = document.querySelector(".bullet");
+const targetBoard = document.createElement("img");
 let started = false;
 let score = 0;
 let goal = 0;
@@ -13,8 +14,9 @@ let startingTime = 10;
 function timerCountdown() {
     let timer = setInterval(() => {
         startingTime--;
-        if (startingTime <= 0) {
+        if (startingTime === 0) {
             document.querySelector(".timer").innerHTML = "TIMER: " + startingTime + " Seconds"
+            targetBoard.remove();
             clearInterval(timer);
             endGame();
         } else {
@@ -32,15 +34,13 @@ function startGame(level) {
     // }
 
     //TARGET BOARD//
-    const targetBoard = document.createElement("img");
     targetBoard.setAttribute("class", "targetBoard");
     targetBoard.setAttribute("src", "./assets/targetboard.png");
     container.appendChild(targetBoard);
     let targetBoardInterval = setInterval(() => {
         const randTop = Math.random() * (contHeight - 100);
         const randLeft = Math.random() * (contWidth - 100);
-        if (startingTime <= 0) {
-            targetBoard.remove();
+        if (startingTime === 0) {
             clearInterval(targetBoardInterval);
         }
 
@@ -48,8 +48,6 @@ function startGame(level) {
         targetBoard.style.top = randTop + "px";
         targetBoard.style.left = randLeft + "px";
     }, level);
-
-
     //TARGET BOARD//
 
     //BULLET SHOT//
@@ -168,7 +166,18 @@ startButton.addEventListener("click", (event) => {
 // })
 // //LEVEL 2 (Speed = 2000)
 
-//SOUND//
+//MUSIC//
+
+function music () {
+    let sound = new Audio (src = "./assets/themesong.mp3")
+    sound.load()
+    sound.play()
+    sound.volume = 0.2
+}
+
+music();
+//MUSIC//
+
 // let music = new audio({
 //     loop: true,
 //     volume: 10,

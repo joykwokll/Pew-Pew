@@ -88,6 +88,7 @@ img::selection{
     left: 2%;
     top: 12%;
     font-size: 24px;
+    text-shadow: 2px 2px black;
 }
 
 .goal {
@@ -96,6 +97,7 @@ img::selection{
     left: 2%;
     top: 20%;
     font-size: 24px;
+    text-shadow: 2px 2px black;
 }
 
 .level {
@@ -104,11 +106,14 @@ img::selection{
     left: 2%;
     top: 4%;
     font-size: 24px;
+    text-shadow: 2px 2px black;
 }
 
 .title {
     font-size: 80px;
     position: absolute;
+    text-shadow: 8px 8px pink;
+    text-shadow: 2px 2px white;
     top: 2%;
     left: 50%;
     transform: translate(-50%, 0%);
@@ -122,6 +127,7 @@ img::selection{
     top: 4%;
     right: 2%;
     color: white;
+    text-shadow: 2px 2px black;
 }
 
 .gameOver {
