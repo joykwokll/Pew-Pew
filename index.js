@@ -13,10 +13,12 @@ function timerCountdown() {
     let timer = setInterval(() => {
         startingTime--;
         if (startingTime <= 0) {
+            document.querySelector(".timer").innerHTML = "TIMER: " + startingTime + " Seconds"
             clearInterval(timer);
             endGame();
+        } else {
+            document.querySelector(".timer").innerHTML = "TIMER: " + startingTime + " Seconds"
         }
-        document.querySelector(".timer").innerHTML = "TIMER: " + startingTime + " Seconds"
     }, 1000);
 }
 
@@ -42,7 +44,7 @@ function startGame(level) {
         targetBoard.style.top = randTop + "px";
         targetBoard.style.left = randLeft + "px";
     }, level);
-    
+
 
     //TARGET BOARD//
 
@@ -54,16 +56,16 @@ function startGame(level) {
             bullet.style.top = "0px"
             bullet.style.left = "0px"
         }, 500);
-    //BULLET SHOT//
+        //BULLET SHOT//
 
-    console.log(e.pageY)
-    console.log(e.pageX)
-    console.log(bullet.style.top)
-    console.log(bullet.style.left)
-    console.log(e.target)
-    console.log(targetBoard)
+        console.log(e.pageY)
+        console.log(e.pageX)
+        console.log(bullet.style.top)
+        console.log(bullet.style.left)
+        console.log(e.target)
+        console.log(targetBoard)
 
-    //SCORE//
+        //SCORE//
         if (e.target === targetBoard) {
             // console.log("hello world")
             score++
@@ -77,40 +79,65 @@ function startGame(level) {
 
 }
 
-// function createNewElement (name, element, className) {
-//     let name = document.createElement(element);
-//     name.setAttribute("class", className);
-//     container.appendChild(name)
-// }
+function createNewElement(element, className, text) {
+    let newName = document.createElement(element);
+    newName.setAttribute("class", className);
+    // newName.innerHTML = text
+    container.appendChild(newName)
+    document.querySelector(`.${className}`).innerHTML = text
+}
 
 function endGame() {
-    if (score < 5){
+    if (score < 5) {
 
-    let gameOver = document.createElement("h1");
-    gameOver.setAttribute("class", "gameOver");
-    container.appendChild(gameOver);
-    document.querySelector(".gameOver").innerHTML = "GAME OVER"
+        createNewElement("h1", "gameOver", "GAME OVER")
+        createNewElement("h3", "finalScore", `SCORE: ${score}`)
+        // createNewElement("BUTTON", "reStart", "Restart Game")
 
-    let finalScore = document.createElement("h3");
-    finalScore.setAttribute("class", "finalScore");
-    container.appendChild(finalScore);
-    document.querySelector(".finalScore").innerHTML = "SCORE: " + score 
+        // let finalScore = document.createElement("h3");
+        // finalScore.setAttribute("class", "finalScore");
+        // container.appendChild(finalScore);
+        // document.querySelector(".finalScore").innerHTML = "SCORE: " + score
 
-    let reStart = document.createElement("BUTTON");
-    reStart.setAttribute("class", "reStart");
-    container.appendChild(reStart);
-    document.querySelector(".reStart").innerHTML = "Restart Game"
+        let reStart = document.createElement("BUTTON");
+        reStart.setAttribute("class", "reStart");
+        container.appendChild(reStart);
+        document.querySelector(".reStart").innerHTML = "Restart Game"
 
-    reStart.addEventListener("click", (event) => {
-        console.log(event.currentTarget);
-        startGame(1500);
-    })
-    
+        reStart.addEventListener("click", () => {
+            restartGame();
+        })
+    } else {
+        nextLevel();
     }
-    else{ 
-        // startGame(2500);
+}
+
+function restartGame() {
+    location.reload()
+}
+
+function nextLevel() {
+    if (score >= 5 && score < 10) {
+
+        createNewElement("h1", "youPassed", "CONGRATULATIONS")
+        // let youPassed = document.createElement("h1");
+        // youPassed.setAttribute("class", "youPassed");
+        // container.appendChild(youPassed);
+        // document.querySelector(".youPassed").innerHTML = "CONGRATULATIONS"
+        createNewElement("h3", "finalScore", `SCORE: ${score}`)
+        createNewElement("BUTTON", "nextLevel", "Proceed to Level 2")
+        // let nextLevel = document.createElement("nextLevel");
+        // nextLevel.setAttribute("class", "nextLevel");
+        // container.appendChild(nextLevel);
+        // document.querySelector(".nextLevel").innerHTML = "Proceed to Level 2"
+        nextLevel.addEventListener("click", () => {
+            startGame(2000);
+        })
+        console.log("test")
+
+
     }
-    
+    // startGame(2500);
 }
 
 
@@ -120,6 +147,16 @@ startButton.addEventListener("click", (event) => {
     console.log(event.currentTarget);
     startGame(1500);
 })
+//LEVEL 1 (Speed = 1500)
+
+// //LEVEL 2 (Speed = 2000)
+// startButton.addEventListener("click", (event) => {
+//     console.log(event.currentTarget);
+//     startGame(2000);
+// })
+// //LEVEL 2 (Speed = 2000)
+
+
 
 // window.addEventListener('resize', (ev) => {
 //     canvas.width = window.innerWidth
@@ -133,7 +170,6 @@ startButton.addEventListener("click", (event) => {
 // });
 
 
-//WHEN TIMER RUN OUT, CALL END GAME
 //MAKE A END GAME FUNCTION 
 //CHECK PASSING MARK 
 //IF PASSED MARK
