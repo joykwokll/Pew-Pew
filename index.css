@@ -7,11 +7,11 @@
     box-sizing: border-box;
     font-family: 'Rye', cursive;
     /* cursor: none; */
-    cursor:url("./snipe.png") 40 40, auto;
+    cursor:url("./assets/snipe.png") 40 40, auto;
 } 
 
 body {
-    background-image: url("./carnivalbackground.jpg");
+    background-image: url("./assets/carnivalbackground.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;

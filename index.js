@@ -34,7 +34,7 @@ function startGame(level) {
     //TARGET BOARD//
     const targetBoard = document.createElement("img");
     targetBoard.setAttribute("class", "targetBoard");
-    targetBoard.setAttribute("src", "./targetboard.png");
+    targetBoard.setAttribute("src", "./assets/targetboard.png");
     container.appendChild(targetBoard);
     let targetBoardInterval = setInterval(() => {
         const randTop = Math.random() * (contHeight - 100);
@@ -61,7 +61,7 @@ function startGame(level) {
             bullet.style.left = "0px"
         }, 500);
         const audio = new Audio();
-        audio.src = "./gunshot.mp3";
+        audio.src = "./assets/gunshot.mp3";
         onclick = audio.play();
         
         //BULLET SHOT//
@@ -168,7 +168,12 @@ startButton.addEventListener("click", (event) => {
 // })
 // //LEVEL 2 (Speed = 2000)
 
-
+//SOUND//
+// let music = new audio({
+//     loop: true,
+//     volume: 10,
+//     src: "./assets/themesong.mp3"
+// })
 
 
 
