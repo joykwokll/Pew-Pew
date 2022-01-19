@@ -70,11 +70,20 @@ function startGame(level) {
     //BULLET SHOT//
     if (level === 1) {
         window.addEventListener("click", (e) => {
-            const audio = new Audio();
-            audio.src = "./assets/gunshot.mp3";
-            audio.load();
+            //GUN SHOT//
+            const hitAudio = new Audio();
+            hitAudio.src = "./assets/gunshot.mp3";
+            hitAudio.load();
+            //MISS
+            const missAudio = new Audio();
+            missAudio.src = "./assets/miss.mp3";
+            missAudio.load();
             if (e.target !== startButton) {
-                onclick = audio.play();
+                if (e.target === targetBoard) {
+                    onclick = hitAudio.play();
+                } else {
+                    onclick = missAudio.play();
+                }
                 bullet.style.top = e.pageY + "px"
                 bullet.style.left = e.pageX + "px"
                 setTimeout(() => {
@@ -98,6 +107,7 @@ function startGame(level) {
                 score++
             } else { score > 0 && score-- }
             document.querySelector(".score").innerHTML = "SCORE: " + score
+
             //     if (started) startButton.innerHTML = "SCORE : " + score;
         });
     }
@@ -116,8 +126,8 @@ function createNewElement(element, className, text) {
 }
 
 function endGame() {
-    console.log('score',score);
-    console.log('goal',goal);
+    console.log('score', score);
+    console.log('goal', goal);
     if (score < goal) {
 
 
@@ -147,7 +157,7 @@ function endGame() {
     } else {
         showNextLevel();
     }
-    
+
 }
 
 function restartGame() {
@@ -214,9 +224,9 @@ function music() {
 //MUSIC//
 
 //UPDATE HI SCORE//
-function updateHiScore (hiScore) {
+function updateHiScore(hiScore) {
     localStorage.setItem('hiScore', hiScore);
-    document.querySelector(".hiScore").innerHTML = "HI-SCORE: " + hiScore 
+    document.querySelector(".hiScore").innerHTML = "HI-SCORE: " + hiScore
 }
 
 updateHiScore(hiScore);
