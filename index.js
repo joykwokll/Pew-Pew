@@ -6,19 +6,24 @@ const nextLevel = document.querySelector(".nextLevel");
 let started = false;
 let score = 0;
 let goal = 0;
+let level = 1;
 
 const contHeight = container.offsetHeight;
 const contWidth = container.offsetWidth;
 
+let targetBoardInterval = null;
+
 //TIMER FUNCTION//
 let startingTime = 10;
 function timerCountdown() {
+    startingTime = 10;
     let timer = setInterval(() => {
         startingTime--;
         if (startingTime === 0) {
             document.querySelector(".timer").innerHTML = "TIMER: " + startingTime + " Seconds"
             targetBoard.remove();
             clearInterval(timer);
+            clearInterval(targetBoardInterval);
             endGame();
         } else {
             document.querySelector(".timer").innerHTML = "TIMER: " + startingTime + " Seconds"
@@ -29,7 +34,12 @@ function timerCountdown() {
 function startGame(level) {
     console.log("started");
     started = true;
-    music();
+    if (level === 1) {
+        music();
+    }
+    let speed = 1500 - (level * 200);
+    goal = level * 5
+
     startButton.remove();
     // if (nextLevel){
     // nextLevel.remove();
@@ -39,52 +49,56 @@ function startGame(level) {
     targetBoard.setAttribute("class", "targetBoard");
     targetBoard.setAttribute("src", "./assets/targetboard.png");
     container.appendChild(targetBoard);
-    let targetBoardInterval = setInterval(() => {
+    targetBoardInterval = setInterval(() => {
         const randTop = Math.random() * (contHeight - 100);
         const randLeft = Math.random() * (contWidth - 100);
-        if (startingTime === 0) {
-            clearInterval(targetBoardInterval);
-        }
 
         targetBoard.style.position = "absolute";
         targetBoard.style.top = randTop + "px";
         targetBoard.style.left = randLeft + "px";
-    }, level);
+    }, speed);
     //TARGET BOARD//
 
+    //NEXT LEVEL INFO//
+    document.querySelector(".level").innerHTML = "LEVEL: " + level
+    document.querySelector(".goal").innerHTML = "GOAL: " + goal
+    //NEXT LEVEL INFO//
+
+
     //BULLET SHOT//
-    window.addEventListener("click", (e) => {
-        const audio = new Audio();
-        audio.src = "./assets/gunshot.mp3";
-        audio.load();
-        if (e.target !== startButton) {
-            onclick = audio.play();
-            bullet.style.top = e.pageY + "px"
-            bullet.style.left = e.pageX + "px"
-            setTimeout(() => {
-                bullet.style.top = "0px"
-                bullet.style.left = "0px"
-            }, 500);
-        }
-        //BULLET SHOT//
+    if (level === 1) {
+        window.addEventListener("click", (e) => {
+            const audio = new Audio();
+            audio.src = "./assets/gunshot.mp3";
+            audio.load();
+            if (e.target !== startButton) {
+                onclick = audio.play();
+                bullet.style.top = e.pageY + "px"
+                bullet.style.left = e.pageX + "px"
+                setTimeout(() => {
+                    bullet.style.top = "0px"
+                    bullet.style.left = "0px"
+                }, 500);
+            }
+            //BULLET SHOT//
 
-        console.log(e.pageY)
-        console.log(e.pageX)
-        console.log(bullet.style.top)
-        console.log(bullet.style.left)
-        console.log(e.target)
-        console.log(targetBoard)
 
-        //SCORE//
-        if (e.target === targetBoard) {
-            // console.log("hello world")
-            score += 5
-        } else { score > 0 && score-- }
-        document.querySelector(".score").innerHTML = "SCORE: " + score
+            // console.log(e.pageY)
+            // console.log(e.pageX)
+            // console.log(bullet.style.top)
+            // console.log(bullet.style.left)
+            // console.log(e.target)
+            // console.log(targetBoard)
 
-        document.querySelector(".goal").innerHTML = "GOAL: " + 5
-        //     if (started) startButton.innerHTML = "SCORE : " + score;
-    });
+            //SCORE//
+            if (e.target === targetBoard) {
+                // console.log("hello world")
+                score++
+            } else { score > 0 && score-- }
+            document.querySelector(".score").innerHTML = "SCORE: " + score
+            //     if (started) startButton.innerHTML = "SCORE : " + score;
+        });
+    }
     //SCORE//
 
     timerCountdown();
@@ -100,7 +114,9 @@ function createNewElement(element, className, text) {
 }
 
 function endGame() {
-    if (score < 5) {
+    console.log('score',score);
+    console.log('goal',goal);
+    if (score < goal) {
 
         createNewElement("h1", "gameOver", "GAME OVER")
         createNewElement("h3", "finalScore", `SCORE: ${score}`)
@@ -140,23 +156,33 @@ function showNextLevel() {
         // document.querySelector(".youPassed").innerHTML = "CONGRATULATIONS"
         createNewElement("h3", "finalScore", `SCORE: ${score}`)
         // createNewElement("BUTTON", "levelTwo", "Proceed to Level 2")
-        nextLevel.show()
-        nextLevel.addEventListener("click", (event) => {
-            console.log(event.currentTarget);
-            event.stopPropagation()
-            startGame(2000);
-            console.log("test")
-        })
+        nextLevel.style.display = "block"
+        if (level === 1) {
+            nextLevel.addEventListener("click", (event) => {
+                console.log(event.currentTarget);
+                event.stopPropagation()
+                level++
+                startGame(level);
+                hideNextLevel();
+                console.log("test")
+            })
+        }
     }
+
     // startGame(2500);
 }
 
+function hideNextLevel() {
+    document.querySelector(".youPassed").remove();
+    document.querySelector(".finalScore").remove();
+    nextLevel.style.display = "none"
+}
 
 
 //LEVEL 1 (Speed = 1500)
 startButton.addEventListener("click", (event) => {
     console.log(event.currentTarget);
-    startGame(1500);
+    startGame(1);
 })
 //LEVEL 1 (Speed = 1500)
 
@@ -170,7 +196,7 @@ startButton.addEventListener("click", (event) => {
 //MUSIC//
 
 function music() {
-    let sound = new Audio(src = "./assets/themesong.mp3")
+    const sound = new Audio(src = "./assets/themesong.mp3")
     sound.load();
     sound.play();
     sound.volume = 0.3;
