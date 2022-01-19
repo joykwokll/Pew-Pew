@@ -139,6 +139,16 @@ img::selection{
     text-shadow: 2px 2px black;
 }
 
+.hiScore {
+    font-size: 24px;
+    position: absolute;
+    text-align: right;
+    top: 12%;
+    right: 2%;
+    color: white;
+    text-shadow: 2px 2px black;
+}
+
 .gameOver {
     position: center;
     text-align: center;

@@ -3,10 +3,12 @@ const container = document.querySelector(".container");
 const bullet = document.querySelector(".bullet");
 const targetBoard = document.createElement("img");
 const nextLevel = document.querySelector(".nextLevel");
+
 let started = false;
 let score = 0;
 let goal = 0;
 let level = 1;
+let hiScore = localStorage.getItem('hiScore') || 0;
 
 const contHeight = container.offsetHeight;
 const contWidth = container.offsetWidth;
@@ -118,6 +120,7 @@ function endGame() {
     console.log('goal',goal);
     if (score < goal) {
 
+
         createNewElement("h1", "gameOver", "GAME OVER")
         createNewElement("h3", "finalScore", `SCORE: ${score}`)
         // createNewElement("BUTTON", "reStart", "Restart Game")
@@ -135,9 +138,16 @@ function endGame() {
         reStart.addEventListener("click", () => {
             restartGame();
         })
+
+        //HI-SCORE//
+        if (score > hiScore) {
+            updateHiScore(score);
+        }
+
     } else {
         showNextLevel();
     }
+    
 }
 
 function restartGame() {
@@ -194,7 +204,6 @@ startButton.addEventListener("click", (event) => {
 // //LEVEL 2 (Speed = 2000)
 
 //MUSIC//
-
 function music() {
     const sound = new Audio(src = "./assets/themesong.mp3")
     sound.load();
@@ -202,9 +211,15 @@ function music() {
     sound.volume = 0.3;
     loop: true;
 }
-
 //MUSIC//
 
+//UPDATE HI SCORE//
+function updateHiScore (hiScore) {
+    localStorage.setItem('hiScore', hiScore);
+    document.querySelector(".hiScore").innerHTML = "HI-SCORE: " + hiScore 
+}
+
+updateHiScore(hiScore);
 // let music = new audio({
 //     loop: true,
 //     volume: 10,
