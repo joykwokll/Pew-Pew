@@ -2,6 +2,7 @@ const startButton = document.querySelector(".startButton");
 const container = document.querySelector(".container");
 const bullet = document.querySelector(".bullet");
 const targetBoard = document.createElement("img");
+const nextLevel = document.querySelector(".nextLevel");
 let started = false;
 let score = 0;
 let goal = 0;
@@ -28,6 +29,7 @@ function timerCountdown() {
 function startGame(level) {
     console.log("started");
     started = true;
+    music();
     startButton.remove();
     // if (nextLevel){
     // nextLevel.remove();
@@ -52,16 +54,18 @@ function startGame(level) {
 
     //BULLET SHOT//
     window.addEventListener("click", (e) => {
-        bullet.style.top = e.pageY + "px"
-        bullet.style.left = e.pageX + "px"
-        setTimeout(() => {
-            bullet.style.top = "0px"
-            bullet.style.left = "0px"
-        }, 500);
         const audio = new Audio();
         audio.src = "./assets/gunshot.mp3";
-        onclick = audio.play();
-        
+        audio.load();
+        if (e.target !== startButton) {
+            onclick = audio.play();
+            bullet.style.top = e.pageY + "px"
+            bullet.style.left = e.pageX + "px"
+            setTimeout(() => {
+                bullet.style.top = "0px"
+                bullet.style.left = "0px"
+            }, 500);
+        }
         //BULLET SHOT//
 
         console.log(e.pageY)
@@ -74,7 +78,7 @@ function startGame(level) {
         //SCORE//
         if (e.target === targetBoard) {
             // console.log("hello world")
-            score++
+            score += 5
         } else { score > 0 && score-- }
         document.querySelector(".score").innerHTML = "SCORE: " + score
 
@@ -116,7 +120,7 @@ function endGame() {
             restartGame();
         })
     } else {
-        nextLevel();
+        showNextLevel();
     }
 }
 
@@ -124,10 +128,10 @@ function restartGame() {
     location.reload()
 }
 
-function nextLevel() {
+function showNextLevel() {
     started = false;
-    
-    if (score >= 5 && score < 10) {
+
+    if (score >= 5) {
 
         createNewElement("h1", "youPassed", "CONGRATULATIONS")
         // let youPassed = document.createElement("h1");
@@ -136,16 +140,13 @@ function nextLevel() {
         // document.querySelector(".youPassed").innerHTML = "CONGRATULATIONS"
         createNewElement("h3", "finalScore", `SCORE: ${score}`)
         // createNewElement("BUTTON", "levelTwo", "Proceed to Level 2")
-        let nextLevel = document.createElement("button");
-        nextLevel.setAttribute("class", "nextLevel");
+        nextLevel.show()
         nextLevel.addEventListener("click", (event) => {
             console.log(event.currentTarget);
             event.stopPropagation()
             startGame(2000);
             console.log("test")
         })
-        container.appendChild(nextLevel);
-        document.querySelector(".nextLevel").innerHTML = "Proceed to Level 2"
     }
     // startGame(2500);
 }
@@ -168,14 +169,14 @@ startButton.addEventListener("click", (event) => {
 
 //MUSIC//
 
-function music () {
-    let sound = new Audio (src = "./assets/themesong.mp3")
-    sound.load()
-    sound.play()
-    sound.volume = 0.2
+function music() {
+    let sound = new Audio(src = "./assets/themesong.mp3")
+    sound.load();
+    sound.play();
+    sound.volume = 0.3;
+    loop: true;
 }
 
-music();
 //MUSIC//
 
 // let music = new audio({
@@ -199,10 +200,3 @@ music();
 //     cursor.style.top = e.pageY + "px";
 //     cursor.style.left = e.pageX + "px";
 // });
-
-
-//MAKE A END GAME FUNCTION 
-//CHECK PASSING MARK 
-//IF PASSED MARK
-
-//PROMPT START LEVEL 2 

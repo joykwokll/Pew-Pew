@@ -17,15 +17,18 @@
 
 
 ## Introduction
-Pew Pew is a 2D shooting game inspired from Steam's Aim Lab. This game is designed using Visual Studio Code and it consist of HTML, CSS and Javascript.
+Pew Pew is a 2D shooting game inspired from Steam's Aim Lab. 
+
+## How To Play
 
 ## Tech stack
-HTML
-CSS
-Javascript
+* Visual Studio Code
+* HTML
+* CSS
+* Javascript
 
-How To Play
 
-Progress
+## Progress
 
-Summary 
+
+## Summary 

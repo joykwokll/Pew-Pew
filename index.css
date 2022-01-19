@@ -82,6 +82,15 @@ img::selection{
     z-index: 999;
 }
 
+.nextLevel {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%,0%);
+    z-index: 999;
+    display: none;
+}
+
 .score {
     position: absolute;
     color: white;
