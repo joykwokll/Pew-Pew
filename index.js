@@ -15,27 +15,6 @@ const contWidth = container.offsetWidth;
 
 let targetBoardInterval = null;
 
-//INSTRUCTIONS//
-const instructions = document.querySelector('.instructions');
-const instructionsbtn = document.querySelector('.instructionsbtn');
-
-document.getElementById('instructionsbtn').addEventListener("click", addActive)
-
-document.getElementById("close-button").addEventListener("click", removeActive)
-
-function addActive(e) {
-  e.preventDefault();
-  instructions.classList.add("active");
-  overlay.classList.add("active");
-}
-
-function removeActive(e) {
-  e.preventDefault();
-  instructions.classList.remove("active");
-  overlay.classList.remove("active");
-}
-
-
 //TIMER FUNCTION//
 let startingTime = 10;
 function timerCountdown() {

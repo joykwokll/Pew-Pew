@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Rye&display=swap');
 
 * {
@@ -42,44 +41,20 @@ button {
     margin: 16% auto 0;
 }
 
-.instructions{
-    position: center;
-    /* top:50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    border: 1px solid black;
-    border-radius:10px;
-    z-index: 10;
-    background-color: white;
-    width: 500px;
-    max-width: 80%;
-    line-height: 30px; */
-  }
-
-/* .instructions-body{
-    padding:10px 15px;
+.instructions {
     position: absolute;
+    top: 63%;
+    left: 43%;
+    text-shadow: 2px 2px pink;
 }
 
-.instructions.active {
-    transform: translate(-50%, -50%) scale(1)
-} */
+.instructions-body {
+    position: absolute;
+    top: 75%;
+    left: 35%;
+    color: white;
+    text-shadow: 2px 2px black;
 
-.overlay{
-    position: fixed;
-    opacity: 0;
-    transition: 200ms ease-in-out;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,.5);
-    pointer-events: none ;
-}
-  
-.overlay.active {
-    opacity: 1;
-    pointer-events: all;
 }
 
 .bullet {
@@ -98,7 +73,6 @@ button {
     z-index: 2;
     transition: 0.3 transform ease;
     transform-origin: 100% 100%;
-
 } */
 
 .targetBoard {
@@ -212,4 +186,3 @@ img::selection{
     margin-bottom: 100px;
     color: white;
 }
-
