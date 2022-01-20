@@ -42,7 +42,7 @@ function startGame(level) {
         music();
         readyGo();
     }
-    let speed = 1500 - (level * 200);
+    let speed = 1500 - (level * 100);
     goal = level * 5
 
     startButton.remove();

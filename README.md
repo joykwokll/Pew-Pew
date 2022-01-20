@@ -51,6 +51,8 @@ Pew Pew is a 2D shooting game inspired from Steam's Aim Lab. The objective of th
 
 8: Add instructions.
 
+9. Edited the speed of the target board after each level because I have some feedbacks from players that the game is too difficult and they have difficulties getting pass level 3/4. 
+
 ## Future Developments
 I got some feedbacks that the minus points for each miss shot actually made it almost impossible to get pass level 4. Because the speed of the target board was generated too fast, they end up missing every shot.
 
