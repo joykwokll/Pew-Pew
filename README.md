@@ -28,9 +28,11 @@ Pew Pew is a 2D shooting game inspired from Steam's Aim Lab. The objective of th
 * Visual Studio Code
 * HTML
 * CSS
-* Javascript
+* Vanilla Javascript
 * Git & GitHub
 
+## Timeline 
+1 month
 
 ## Progress
 1: Generate the game overall background. Create the container where the target board will appear in. Resize it so that it will fit nicely in my browser. 
@@ -58,6 +60,8 @@ For the normal game mode, I could remove the deduction of points for the missed 
 
 While for the hard mode, the deduction of points remains. 
 This way, players will be able to choose the difficulty of the game themself and practise accordingly to their respective skills.
+
+Also another unsolved issue I have is the different browser sizes from different computer actually affects my cursor snipe and bullet hole's placing. This is something I can work on in the near future to improve my game futher.
 
 ## Summary 
 All in all, I am pretty happy and satisfied with how my game turn out to be. Even though I have met a ton of obstacles since I started building on this game from stretch, I am glad that I solved them one by one with the help of my lecturers and classmates. 
