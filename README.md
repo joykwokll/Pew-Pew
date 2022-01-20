@@ -34,16 +34,23 @@ Pew Pew is a 2D shooting game inspired from Steam's Aim Lab. The objective of th
 
 ## Progress
 1: Generate the game overall background. Create the container where the target board will appear in. Resize it so that it will fit nicely in my browser. 
+
 2: Create all the HTML header and text for instance, the game name, levels, goals, scores and timer.
+
 3: Create the Game Logic. Change the cursor to the snipe, and upon click, allow the bullet holes to appear.
+
 4: Create different levels. As the level increases, the speed interval of each target board increases as well. This is the difficulty for each level.
+
 5: Create point system. Each successful shot gives 1 point. And each missed shot deduct 1 point. 
+
 6: Create local storage hi-scores. 
+
 7: Add music and sound effects. 
+
 8: Add instructions.
 
 ## Future Developments
-I got some feedbacks that the minus points for each miss shot actually made it almost impossible to get pass level 4. 
+I got some feedbacks that the minus points for each miss shot actually made it almost impossible to get pass level 4. Because the speed of the target board was generated too fast, they end up missing every shot.
 
 Thus in order to solve that problem and make my game more managable, one of the improvement could be for me to create 2 game modes. 
 
