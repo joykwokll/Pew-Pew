@@ -52,12 +52,15 @@ function startGame(level) {
     targetBoard.setAttribute("src", "./assets/targetboard.png");
     container.appendChild(targetBoard);
     targetBoardInterval = setInterval(() => {
+
         const randTop = Math.random() * (contHeight - 100);
         const randLeft = Math.random() * (contWidth - 100);
+
 
         targetBoard.style.position = "absolute";
         targetBoard.style.top = randTop + "px";
         targetBoard.style.left = randLeft + "px";
+        targetBoard.style.display = "block";
     }, speed);
     //TARGET BOARD//
 
@@ -81,6 +84,7 @@ function startGame(level) {
             if (e.target !== startButton) {
                 if (e.target === targetBoard) {
                     onclick = hitAudio.play();
+                    targetBoard.style.display = "none"
                 } else {
                     onclick = missAudio.play();
                 }
