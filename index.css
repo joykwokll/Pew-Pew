@@ -42,6 +42,46 @@ button {
     margin: 16% auto 0;
 }
 
+.instructions{
+    position: center;
+    /* top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    border: 1px solid black;
+    border-radius:10px;
+    z-index: 10;
+    background-color: white;
+    width: 500px;
+    max-width: 80%;
+    line-height: 30px; */
+  }
+
+/* .instructions-body{
+    padding:10px 15px;
+    position: absolute;
+}
+
+.instructions.active {
+    transform: translate(-50%, -50%) scale(1)
+} */
+
+.overlay{
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,.5);
+    pointer-events: none ;
+}
+  
+.overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
 .bullet {
     position: absolute;
     height: 50px;
