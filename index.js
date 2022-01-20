@@ -38,6 +38,7 @@ function startGame(level) {
     started = true;
     if (level === 1) {
         music();
+        readyGo();
     }
     let speed = 1500 - (level * 200);
     goal = level * 5
@@ -133,7 +134,7 @@ function endGame() {
     console.log('score', score);
     console.log('goal', goal);
     if (score < goal) {
-
+        loseGame();
 
         createNewElement("h1", "gameOver", "GAME OVER")
         createNewElement("h3", "finalScore", `SCORE: ${score}`)
@@ -172,7 +173,7 @@ function showNextLevel() {
     started = false;
 
     if (score >= 5) {
-
+        winGame();
         createNewElement("h1", "youPassed", "CONGRATULATIONS")
         // let youPassed = document.createElement("h1");
         // youPassed.setAttribute("class", "youPassed");
@@ -224,6 +225,24 @@ function music() {
     sound.play();
     sound.volume = 0.3;
     loop: true;
+}
+
+function readyGo() {
+    const readyGo = new Audio(src = "./assets/321go.mp3")
+    readyGo.load();
+    readyGo.play();
+}
+
+function winGame() {
+    const winGame = new Audio(src = "./assets/win.mp3")
+    winGame.load();
+    winGame.play();
+}
+
+function loseGame() {
+    const loseGame = new Audio(src = "./assets/lose.mp3")
+    loseGame.load();
+    loseGame.play();
 }
 //MUSIC//
 
