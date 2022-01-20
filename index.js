@@ -3,6 +3,8 @@ const container = document.querySelector(".container");
 const bullet = document.querySelector(".bullet");
 const targetBoard = document.createElement("img");
 const nextLevel = document.querySelector(".nextLevel");
+const instructions = document.querySelector(".instructions");
+const instructionsBody = document.querySelector(".instructions-body");
 
 let started = false;
 let score = 0;
@@ -44,6 +46,8 @@ function startGame(level) {
     goal = level * 5
 
     startButton.remove();
+    instructions.remove();
+    instructionsBody.remove();
     // if (nextLevel){
     // nextLevel.remove();
     // }

@@ -43,17 +43,19 @@ button {
 
 .instructions {
     position: absolute;
-    top: 63%;
-    left: 43%;
+    top: 57%;
+    left: 40%;
     text-shadow: 2px 2px pink;
+    font-size: 35px;
 }
 
 .instructions-body {
     position: absolute;
-    top: 75%;
-    left: 35%;
+    top: 68%;
+    left: 29%;
     color: white;
     text-shadow: 2px 2px black;
+    font-size: 20px;
 
 }
 
@@ -91,7 +93,7 @@ img::selection{
 
 .startButton {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%,0%);
     z-index: 999;
