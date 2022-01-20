@@ -33,17 +33,26 @@ Pew Pew is a 2D shooting game inspired from Steam's Aim Lab. The objective of th
 
 
 ## Progress
-Step 1: Generate the game overall background. Create the container where the target board will appear in. Resize it so that it will fit nicely in my browser. 
-Step 2: Create all the HTML header and text for instance, the game name, levels, goals, scores and timer.
-Step 3: Create the Game Logic. Change the cursor to the snipe, and upon click, allow the bullet holes to appear.
-Step 4: Create different levels. As the level increases, the speed interval of each target board increases as well. This is the difficulty for each level.
-Step 5: Create point system. Each successful shot gives 1 point. And each missed shot deduct 1 point. 
-Step 6: Create local storage hi-scores. 
-Step 7: Add music and sound effects. 
-Step 8: Add instructions.
+1: Generate the game overall background. Create the container where the target board will appear in. Resize it so that it will fit nicely in my browser. 
+2: Create all the HTML header and text for instance, the game name, levels, goals, scores and timer.
+3: Create the Game Logic. Change the cursor to the snipe, and upon click, allow the bullet holes to appear.
+4: Create different levels. As the level increases, the speed interval of each target board increases as well. This is the difficulty for each level.
+5: Create point system. Each successful shot gives 1 point. And each missed shot deduct 1 point. 
+6: Create local storage hi-scores. 
+7: Add music and sound effects. 
+8: Add instructions.
 
 ## Future Developments
-I got some feedbacks that the minus points for each miss shot actually made it almost impossible to get pass level 4. Thus in order to solve that problem and make my game more managable, one of the improvement could be for me to create 2 game modes. For the normal game mode, I could remove the deduction of points for the missed shots. While for the hard mode, the deduction of points remains. This way, players will be able to choose the difficulty of the game themself and practise accordingly to their respective skills.
+I got some feedbacks that the minus points for each miss shot actually made it almost impossible to get pass level 4. 
+
+Thus in order to solve that problem and make my game more managable, one of the improvement could be for me to create 2 game modes. 
+
+For the normal game mode, I could remove the deduction of points for the missed shots. 
+
+While for the hard mode, the deduction of points remains. 
+This way, players will be able to choose the difficulty of the game themself and practise accordingly to their respective skills.
 
 ## Summary 
-All in all, I am pretty happy and satisfied with how my game turn out to be. Even though I have met a ton of obstacles since I started building on this game from stretch, I am glad that I solved them one by one with the help of my lecturers and classmates. I had fun building and playing the game.
+All in all, I am pretty happy and satisfied with how my game turn out to be. Even though I have met a ton of obstacles since I started building on this game from stretch, I am glad that I solved them one by one with the help of my lecturers and classmates. 
+
+I had fun building and playing the game.
